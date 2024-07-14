@@ -22,32 +22,16 @@
         /// <returns>The new face value of the die</returns>
         public byte Roll()
         {
-            
-            
-            if (!IsHeld)
-            {
-                FaceValue = (byte)DieRoller.Random.Next(1, 7);
-            }
-            throw new NotImplementedException();
-        }
+            // Generate a random number between 1 and 6
+            Random random = new Random();
+            byte newValue = (byte)random.Next(1, 7); // .Next returns a int so we need to cast it to a byte
 
+            // Set the new face value
+            FaceValue = newValue;
 
-
-
-
-
-
-
-
-
-        private static Random _random = new Random();
-        
-        /// <summary>
-        /// Rolls the die and returns the result.
-        /// </summary>
-        public int Roll()
-        {
-            return _random.Next(1, 7);
+            // Return the new face value
+            return FaceValue;
+            // throw new NotImplementedException(); why was this added originally?
         }
     }
 }
